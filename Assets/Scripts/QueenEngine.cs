@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KingEngine : Engine
+public class QueenEngine : Engine
 {
-    public const int RANGE = 1;
+    public const int RANGE = 8;
 
     public override SpaceGrid<bool> getMovement(SpaceGrid<Piece> grid)
     {
@@ -15,7 +15,14 @@ public class KingEngine : Engine
         {
             for (int j = v.y - RANGE; j <= v.y + RANGE; j++)
             {
-                moves[i, j] = true;
+                //Horizontal and Vertical
+                if (i == v.x || j == v.y
+                    //Horizontal
+                    || Mathf.Abs(i - v.x) == Mathf.Abs(j - v.y)
+                    )
+                {
+                    moves[i, j] = true;
+                }
             }
         }
         //Remove current cell
