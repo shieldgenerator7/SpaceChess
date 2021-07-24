@@ -7,11 +7,16 @@ public class SpaceGrid
     public const int WIDTH = 8;
     public const int HEIGHT = 8;
 
-    private int[,] grid = new int[WIDTH, HEIGHT];
+    private Piece[,] grid = new Piece[WIDTH, HEIGHT];
 
-    public int this[int width, int height]
+    public Piece this[int width, int height]
     {
         get => grid[width, height];
         set => grid[width, height] = value;
+    }
+    public Piece this[Vector2Int v]
+    {
+        get => grid[v.x, v.y];
+        set => grid[v.x, v.y] = value;
     }
 }
