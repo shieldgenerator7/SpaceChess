@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Engine
 {
-    protected abstract int Range { get; }
+    protected virtual int Range => 8;
 
     protected delegate bool PositionFunction(int x, int y, Vector2Int v);
     protected abstract PositionFunction ValidMoveFunction { get; }
