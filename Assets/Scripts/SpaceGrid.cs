@@ -11,13 +11,13 @@ public struct SpaceGrid<T>
 
     public T this[int width, int height]
     {
-        get => grid[width, height];
-        set => grid[width, height] = value;
+        get => grid[Mathf.Clamp(width, 0, WIDTH - 1), Mathf.Clamp(height, 0, HEIGHT - 1)];
+        set => grid[Mathf.Clamp(width, 0, WIDTH - 1), Mathf.Clamp(height, 0, HEIGHT - 1)] = value;
     }
     public T this[Vector2Int v]
     {
-        get => grid[v.x, v.y];
-        set => grid[v.x, v.y] = value;
+        get => this[v.x, v.y];
+        set => this[v.x, v.y] = value;
     }
 
     public static SpaceGrid<T> createSpaceGrid()
