@@ -5,4 +5,5 @@ using UnityEngine;
 public class Piece
 {
     public Vector2Int position;
+    public Engine engine;
 }

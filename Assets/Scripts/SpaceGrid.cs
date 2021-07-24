@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceGrid
+public struct SpaceGrid<T>
 {
     public const int WIDTH = 8;
     public const int HEIGHT = 8;
 
-    private Piece[,] grid = new Piece[WIDTH, HEIGHT];
+    private T[,] grid;
 
-    public Piece this[int width, int height]
+    public T this[int width, int height]
     {
         get => grid[width, height];
         set => grid[width, height] = value;
     }
-    public Piece this[Vector2Int v]
+    public T this[Vector2Int v]
     {
         get => grid[v.x, v.y];
         set => grid[v.x, v.y] = value;
+    }
+
+    public static SpaceGrid<T> createSpaceGrid()
+    {
+        SpaceGrid<T> spaceGrid = new SpaceGrid<T>();
+        spaceGrid.grid = new T[WIDTH, HEIGHT];
+        return spaceGrid;
     }
 }
